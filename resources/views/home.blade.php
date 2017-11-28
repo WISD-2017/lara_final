@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.memberi')
 @section('title','個人頁面')
 @section('content')
 <div class="container">
