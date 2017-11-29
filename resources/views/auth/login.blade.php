@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('layouts.memberi')
+@section('title','登入')
 @section('content')
 <div class="container">
     <div class="row">
