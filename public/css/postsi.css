@@ -1,0 +1,19 @@
+.wrapper{
+    margin: auto;
+}
+
+.page-wrapper{
+    width: auto;
+    margin:0 ;
+  }
+.sidebar{
+    left:0px;
+    width:100px;
+    text-align: center;
+
+}
+.nav{
+    left: 0px;
+    width: 100px;
+
+}
