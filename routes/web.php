@@ -17,4 +17,10 @@ Route::get('home',['as'=>'home','uses'=>'HomeController@home']);
 
 Route::get('newest',['as'=>'newest','uses'=>'PostController@newest']);
 
+ 
+Route::group(['prefix' => 'posts'], function() {
+    Route::get('/{id}',['as'=>'posts.view','uses'=>'PostController@posts']);
+   
+    
+});
 
