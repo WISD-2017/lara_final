@@ -12,6 +12,12 @@ class PostController extends Controller
     $data =['posts'=> $posts];
     return view('vi',$data);
    }
+   public function posts($id)
+   {
+        $post=Post::find($id);
+        $data=['post'=>$post];
+        return view('posts', $data);
+   }
    
     
 }
