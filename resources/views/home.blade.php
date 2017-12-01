@@ -8,13 +8,22 @@
                 <div class="panel-heading">過去的文章</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                @if($posts !=null)
+                    @foreach($posts as $post)
+                    <div>
+                    <hr  size=10 color=#888888>
+                    <a href="{{ route('posts.view', $post->id) }}">
+                        <div style="padding:8px">
+                        <div class="fontlarge"style="text-align:left">{{$post -> title}}</div>
+                        <div>{{$post ->updated_at}}</div>
                         </div>
-                    @endif
-
-                    You are logged in!
+                        </a>
+                    
+                    </div><hr size=8 color=#888888>
+                @endforeach
+                @else
+                    <p>你還沒有發過文喔</p>
+                @endif
                 </div>
             </div>
         </div>
