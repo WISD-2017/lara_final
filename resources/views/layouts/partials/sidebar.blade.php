@@ -1,10 +1,10 @@
-@include('layouts.partials.membernavbar')
+<div>
+@include('layouts.partials.membernavbar')</div>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
     
-    <div class="sidebar">
-       <div class-sm="1"> 
-       <ul class="nav navbar-nav side-nav">
+    <div class="nav">
+       <ul class="sidebar">
             <li class="active">
                 <a href=""> 主控台</a>
             </li>
@@ -16,6 +16,5 @@
             </li>
         </ul>
         </div>
-    </div>
     <!-- /.navbar-collapse -->
 </nav>
