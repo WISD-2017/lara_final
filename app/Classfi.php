@@ -3,8 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Post;
 class Classfi extends Model
 {
-    //
+    protected $table = 'classfis';
+    protected $fillable=[
+        'class',
+        ];
+    public function post(){
+        return $this->hasMany(Post::class);
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Comment;
+use App\Classfi;
 class Post extends Model
 {
     //
@@ -22,5 +23,8 @@ class Post extends Model
     public function comments()
     {
     	return $this -> hasMany(Comment::class);
+    }
+    public function classfi(){
+        return $this->hasOne(Classfi::class);
     }
 }
