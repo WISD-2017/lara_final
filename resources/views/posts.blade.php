@@ -5,16 +5,17 @@
 @section('content')
 <!-- /.row -->
 <div class="container">
-    <div class="panel-heading" style="text-align:left">最新文章</div> 
+    <div class="panel-heading,bold" style="font-weight:bold">最新文章</div> 
 
 <div class="row">
     <div class="col-lg-12">
 
             
             <div class="fontlarge" >
-                {{$post->owner}}
+                {{$post->user_name}}
+                
             </div>
-            <a>心情</a>
+            
             <span>{{$post->updated_at}}</span>
                 
              
@@ -28,7 +29,7 @@
             </div>
             <div>&nbsp;</div>
             <div class="text-left">
-                <button href="{{route('index')}}" type="button" class="btn btn-default">Left</button>
+                <button href="{{route('index')}}" type="button" class="btn btn-default">留言</button>
             </div>
             
             @foreach ($post->comments as $comment) 

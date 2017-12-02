@@ -28,7 +28,7 @@
                     <hr  size=10 color=#888888>
                     <a href="{{ route('posts.view', $post->id) }}">
                         <div style="padding:8px">
-                        <div style="text-align:left">{{$post->owner}}</div>
+                        <div style="text-align:left">{{$post->user_name}}</div>
                         <div class="fontlarge">{{$post -> title}}</div>
                         <div>{{$post ->updated_at}}</div>
                         </div>

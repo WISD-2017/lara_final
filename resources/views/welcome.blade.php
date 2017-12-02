@@ -69,8 +69,8 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        <a href="{{ route('home')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                           {{Auth::user()->name }}<span class="caret"></span>
                         </a>
                     @else
                         <a href="{{ route('login') }}">ˇ登入</a>
