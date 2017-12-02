@@ -26,7 +26,8 @@ class PostRequest extends FormRequest
         return [
             
             'title' =>'required|min:3|max:255',
-            'content' =>'required'
+            'content' =>'required',
+            'classfi_id'=>'required',
         ];
     }
 }

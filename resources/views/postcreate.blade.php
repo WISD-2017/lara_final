@@ -23,7 +23,19 @@
             <div style="display:none">
             <input name="user_id" value={{Auth::user()->id}}>
             <input name="user_name" value="{{Auth::user()->name}}">
+            
             </div>
+            
+            <div class="">
+                <label>看板</label> 
+                <select name="classfi_id" class="form-control">
+                    @foreach($classfis as$classfi)
+                        <option value="{{$classfi->id}}">{{$classfi->class}}</option>
+                    @endforeach
+                   
+                </select>     
+            </div>
+            
             <div class="form-group">
                 <label>標題：</label>
                 <input name="title" class="form-control" placeholder="請輸入文章標題">

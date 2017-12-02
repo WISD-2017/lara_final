@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->integer('user_id');
+            $table->integer('classfi_id');
             $table->string('user_name');
             $table->timestamps();
         });

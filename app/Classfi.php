@@ -8,6 +8,7 @@ class Classfi extends Model
 {
     protected $table = 'classfis';
     protected $fillable=[
+        'id',
         'class',
         ];
     public function post(){

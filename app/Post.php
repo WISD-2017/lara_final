@@ -15,6 +15,7 @@ class Post extends Model
         'content',
         'user_id',
         'user_name',
+        'classfi_id',
     ];
     public function user()
     {
