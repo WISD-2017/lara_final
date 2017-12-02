@@ -15,7 +15,7 @@ class CreateClassfisTable extends Migration
     {
         Schema::create('classfis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('class')->unique();
+            $table->string('class');
             $table->timestamps();
         });
     }
