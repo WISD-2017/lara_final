@@ -20,10 +20,12 @@ Route::get('newest',['as'=>'newest','uses'=>'PostController@newest']);
  
 //文章路由
 Route::group(['prefix' => 'posts'], function() {
-    Route::get('posts/{id}',['as'=>'posts.view','uses'=>'PostController@posts']);
+    Route::get('/{id}',['as'=>'posts.view','uses'=>'PostController@posts','where' => ['id' => '[0-9]+'],]);
     Route::get('/create',['as'=>'posts.create','uses'=>'PostController@create']);
     Route::post('/', ['as' => 'posts.store'  , 'uses' => 'PostController@store']);
-
+    //留言路由
+    Route::get('/comment/{id}', ['as' => 'posts.comment'  , 'uses' => 'PostController@comment']);
+    Route::post('/{id}', ['as' => 'posts.comstore'  , 'uses' => 'PostController@comstore']);
 });
 
 //後台路由
