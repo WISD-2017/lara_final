@@ -42,37 +42,32 @@ class ClassfiController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Classfi  $classfi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Classfi $classfi)
+    //編輯文章類別
+    public function classedit($id)
     {
-        //
+        $classfis = Classfi::Find($id);
+        return view('admin.classedit', ['classfis'=>$classfis]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Classfi  $classfi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Classfi $classfi)
+    //儲存編輯過後的類別
+    public function classupdate(ClassfiRequest $request,$id)
     {
-        //
+        $classfis = Classfi::find($id);
+        $classfis->update($request->all());
+        return redirect()->route('classfi.index');  
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Classfi  $classfi
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Classfi $classfi)
+
+    //確認刪除類別
+    public function delcheck($id)
     {
-        //
+        $classfis =Classfi::Find($id);
+        return view('admin.classdelet',['classfis'=>$classfis]);
+    }
+    //刪除類別
+    public function destroy($id)
+    {
+        Classfi::destroy($id);
+        return redirect()->route('classfi.index');
     }
 }
