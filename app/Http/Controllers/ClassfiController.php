@@ -4,40 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Classfi;
 use Illuminate\Http\Request;
-
+use DB;
+use Auth;
+use App\Http\Requests\ClassfiRequest;
 class ClassfiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //顯示所有文章類別
     public function index()
-    {
-        //
+    {   
+        
+        $classfis = DB::table('classfis')->get();
+        $data=['classfis'=>$classfis];
+        return view('admin.classfi',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //新增類別
+    public function classadd()
     {
-        //
+        
+        return view('admin.classadd');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    
+    //儲存類別
+    public function classstore(ClassfiRequest $request) 
+    {     
+        Classfi::create($request->all());
+        return redirect()->route('classfi.index');
     }
-
     /**
      * Display the specified resource.
      *
