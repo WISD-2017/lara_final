@@ -12,11 +12,12 @@ class Post extends Model
     protected $fillable=[
         'title',
         'content',
-        'owner'
+        'user_id',
+        'user_name',
     ];
     public function user()
     {
-    	return $this -> belongsTO(User::class);
+    	return $this -> hasOne(User::class);
     }
     public function comments()
     {
