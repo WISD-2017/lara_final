@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-lg-12">
 
-            
+            @if($post != null)
             <div class="fontlarge" >
                 {{$post->user_name}}
                 
@@ -44,6 +44,12 @@
                         </div>
                         <hr  size=10 color=#888888>
             @endforeach
+            
+            @else
+            </p>
+                找不到這篇文章喔
+            </p>
+            @endif
     </div>
 </div>
 <!-- /.row -->
