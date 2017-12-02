@@ -13,14 +13,11 @@
 Route::auth();
 
 Route::get('/',['as'=>'index','uses'=>'HomeController@index']);
-Route::get('home',['as'=>'home','uses'=>'HomeController@home']);
-
+Route::get('home/',['as'=>'home','uses'=>'HomeController@home']);
 Route::get('newest',['as'=>'newest','uses'=>'PostController@newest']);
 
  
-Route::group(['prefix' => 'posts'], function() {
-    Route::get('/{id}',['as'=>'posts.view','uses'=>'PostController@posts']);
-   
-    
-});
 
+Route::get('/{id}',['as'=>'posts.view','uses'=>'PostController@posts']);
+Route::get('/create',['as'=>'posts.create','uses'=>'PostController@create']);
+Route::post('posts', ['as' => 'posts.store'  , 'uses' => 'PostController@store']);
