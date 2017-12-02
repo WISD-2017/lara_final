@@ -1,20 +1,18 @@
 <div>
 @include('layouts.partials.membernavbar')</div>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-
-    
+<?php
+    $classfis = DB::table('classfis')->get();
+?>    
     <div class="nav">
        <ul class="sidebar">
+            
+            @foreach($classfis as $classfi)
             <li class="active">
-                <a href=""> 主控台</a>
-            </li>
-            <li>
-                <a href=""> 文章管理</a>
-            </li>
-            <li>
-                <a href="#">熱門</a>
-            </li>
+                <div><a href="">{{$classfi->class}}</a></div>
+            </li>  
+            @endforeach       
         </ul>
-        </div>
+    </div>
     <!-- /.navbar-collapse -->
 </nav>
