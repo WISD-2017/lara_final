@@ -11,8 +11,8 @@
                     
                     @foreach($classfis as $classfi)
                     <div class="fontbig">{{$classfi->id }} / {{$classfi->class}}
-                        <a href="#" align="right" class="btncla btn-su">編輯</a>  
-                        <a href="#" align="right" class="btncla btn-su">刪除</a>  
+                        <a href="{{route('classfi.edit',$classfi->id )}}" align="right" class="btncla btn-su">編輯</a>  
+                        <a href="{{route('classfi.destroych',$classfi->id )}}" align="right" class="btncla btn-su">刪除</a>  
                     </div>
                     @endforeach
                     

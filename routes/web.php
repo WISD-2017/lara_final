@@ -35,6 +35,8 @@ Route::group(['prefix' => 'backstage'], function() {
     Route::get('/classfi',['as'=>'classfi.index','uses'=>'ClassfiController@index']);
     Route::get('/classadd',['as'=>'classfi.add','uses'=>'ClassfiController@classadd']);
     Route::post('/classfi', ['as' => 'classfi.store'  , 'uses' => 'ClassfiController@classstore']);
-    
-    
+    Route::get('/classedit/{id}',['as'=>'classfi.edit','uses'=>'ClassfiController@classedit']);
+    Route::patch('/classfi/{id}',['as'=>'classfi.update','uses'=>'ClassfiController@classupdate']);
+    Route::delete('/classfi/check/{id}',['as'=>'classfi.destroych','uses'=>'ClassfiController@delcheck']);
+    Route::delete('/classfi/delet/{id}',['as'=>'classfi.destroy','uses'=>'ClassfiController@destroy']);
 });
