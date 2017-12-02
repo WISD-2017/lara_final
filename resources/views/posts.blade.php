@@ -29,15 +29,16 @@
             </div>
             <div>&nbsp;</div>
             <div class="text-left">
-                <button href="{{route('index')}}" type="button" class="btn btn-default">留言</button>
+                <a href="{{ route('posts.comment',$post->id) }}" align="right" class="btn btn-su">留言</a> 
             </div>
             
             @foreach ($post->comments as $comment) 
                 <div>
-                        <hr  size=10 color=#888888>
+                        <hr  size=10 color=#888888 width=800px align=left>
                             <div style="padding:8px">
                             <div style="text-align:left">{{$comment -> owner }}</div>
-                            <div>B{{$comment->id}} | {{$comment ->updated_at}}</div>
+                            
+                            <div> {{$comment ->updated_at}}</div>
                             <div class="fontlarge">{{$comment -> title}}</div>
                             <div class="fontlarge">{{$comment->content}}</div>
                             </div>
