@@ -1,5 +1,5 @@
 @extends('layouts.memberi')
-@section('title','新增類別')
+@section('title','編輯類別')
 @section('content')
 @include('layouts.partials.validation')
 
