@@ -30,7 +30,13 @@ Route::group(['prefix' => 'posts'], function() {
 
 //文章分類
 
-Route::get('classfi/',['as'=>'class.index','uses'=>'ClassfiController@show']);
+Route::group(['prefix' => 'classfi'], function() {
+    Route::get('/',['as'=>'class.index','uses'=>'ClassfiController@show']);
+    Route::get('/{id}',['as'=>'class.post','uses'=>'ClassfiController@showpost']);
+    
+});
+
+
 
 //後台路由
 Route::group(['prefix' => 'backstage'], function() {

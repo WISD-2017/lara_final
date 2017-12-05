@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     @foreach($classfis as $class)
                         <div>
-                            <a href="#">
+                            <a href="{{route('class.post',$class->id)}}">
                             <div style="padding:8px">
                             <div style="text-align:left">{{$class->class }}</div>
                             </a>

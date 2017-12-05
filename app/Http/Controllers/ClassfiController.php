@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classfi;
 use Illuminate\Http\Request;
 use DB;
+use App\Post;
 use Auth;
 use App\Http\Requests\ClassfiRequest;
 class ClassfiController extends Controller
@@ -31,17 +32,23 @@ class ClassfiController extends Controller
         Classfi::create($request->all());
         return redirect()->route('classfi.index');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Classfi  $classfi
-     * @return \Illuminate\Http\Response
-     */
+    
+
+    //顯示文章類別
     public function show()
     {   
         $classfis = DB::table('classfis')->get();
         return view('classview',['classfis'=>$classfis]);
     }
+    public function showpost($id)
+    {   
+        $posts = Post::where('classfi_id',$id)->orderBy('created_at','DESC')->get();
+        
+        return view('classposts',['posts'=>$posts]);
+    }
+
+
+
 
     //編輯文章類別
     public function classedit($id)
