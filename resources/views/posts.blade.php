@@ -29,9 +29,12 @@
             </div>
             <div>&nbsp;</div>
             <div class="text-left">
+             @guest
+                <p clss="fontsmall">登入後才可留言</p>
+            @else
                 <a href="{{ route('posts.comment',$post->id) }}" align="right" class="btn btn-su">留言</a> 
             </div>
-            
+            @endguest
             @foreach ($post->comments as $comment) 
                 <div>
                         <hr  size=10 color=#888888 width=800px align=left>
