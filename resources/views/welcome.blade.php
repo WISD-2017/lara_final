@@ -89,7 +89,7 @@
                     <a>|</a>
                     <a href="">熱門文章</a>
                     <a>|</a>
-                    <a href="">文章分類</a>
+                    <a href="{{route('class.index')}}">文章分類</a>
                     <a>|</a>
                     <a href="">文章列表</a>
                 </div>

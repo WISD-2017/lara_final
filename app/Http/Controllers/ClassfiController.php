@@ -37,9 +37,10 @@ class ClassfiController extends Controller
      * @param  \App\Classfi  $classfi
      * @return \Illuminate\Http\Response
      */
-    public function show(Classfi $classfi)
-    {
-        //
+    public function show()
+    {   
+        $classfis = DB::table('classfis')->get();
+        return view('classview',['classfis'=>$classfis]);
     }
 
     //編輯文章類別

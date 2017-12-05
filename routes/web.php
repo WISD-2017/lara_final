@@ -28,6 +28,10 @@ Route::group(['prefix' => 'posts'], function() {
     Route::post('/{id}', ['as' => 'posts.comstore'  , 'uses' => 'PostController@comstore']);
 });
 
+//文章分類
+
+Route::get('classfi/',['as'=>'class.index','uses'=>'ClassfiController@show']);
+
 //後台路由
 Route::group(['prefix' => 'backstage'], function() {
     //後台主頁
