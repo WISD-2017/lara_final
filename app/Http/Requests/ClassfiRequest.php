@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use DB;
 class ClassfiRequest extends FormRequest
 {
     /**
@@ -24,7 +24,7 @@ class ClassfiRequest extends FormRequest
     public function rules()
     {
         return [
-            'class'=> 'required'
+            'class'=> 'required|Unique:classfis',
         ];
     }
 }
