@@ -9,7 +9,7 @@
             
             @foreach($classfis as $classfi)
             <li class="active">
-                <div><a href="">{{$classfi->class}}</a></div>
+                <div><a href="{{route('class.post',$classfi->id)}}">{{$classfi->class}}</a></div>
             </li>  
             @endforeach       
         </ul>
