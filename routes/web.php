@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Middleware\CheckAdmin;
+
 //登入路由
 Route::auth();
 //首頁路由
@@ -27,14 +29,16 @@ Route::group(['prefix' => 'posts'], function() {
     Route::get('/comment/{id}', ['as' => 'posts.comment'  , 'uses' => 'PostController@comment']);
     Route::post('/{id}', ['as' => 'posts.comstore'  , 'uses' => 'PostController@comstore']);
 });
+//熱門文章
+Route::get('hot', ['as'=>'hot.post','uses'=>'PostController@hot']);
 
 //文章分類
-
 Route::group(['prefix' => 'classfi'], function() {
-    Route::get('/',['as'=>'class.index','uses'=>'ClassfiController@show']);
-    Route::get('/{id}',['as'=>'class.post','uses'=>'ClassfiController@showpost']);
-    
+    Route::get('/',['as'=>'class.index','uses'=>'PostClassController@show']);
+    Route::get('/{id}',['as'=>'class.post','uses'=>'PostClassController@showpost']);
 });
+
+
 
 
 
