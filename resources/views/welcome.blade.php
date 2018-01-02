@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href="{{ route('newest') }}">最新文章</a>
                     <a>|</a>
-                    <a href="">熱門文章</a>
+                    <a href="{{ route('hot.post') }}">熱門文章</a>
                     <a>|</a>
                     <a href="{{route('class.index')}}">文章分類</a>
                 </div>
