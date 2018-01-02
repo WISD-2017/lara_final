@@ -1,6 +1,5 @@
 @extends('layouts.vmi')
-
-@section('title', '')
+@section('title','文章列表')
 
 @section('content')
 <!-- /.row -->
@@ -20,7 +19,6 @@
     <div class="col-lg-8">
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
-               
                @foreach($posts as $post)
                     <div>
                     <hr  size=10 color=#888888>
@@ -34,6 +32,7 @@
                     
                     </div><hr size=8 color=#888888>
                 @endforeach
+                
                 </tbody>
             </table>
         </div> 
