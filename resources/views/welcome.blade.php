@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    說話
+                    Talk
                 </div>
 
                 <div class="links">
@@ -90,8 +90,6 @@
                     <a href="">熱門文章</a>
                     <a>|</a>
                     <a href="{{route('class.index')}}">文章分類</a>
-                    <a>|</a>
-                    <a href="">文章列表</a>
                 </div>
             </div>
         </div>
