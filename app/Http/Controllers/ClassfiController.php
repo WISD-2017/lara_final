@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classfi;
+use App\Http\Middleware\CheckAdmin;
 use Illuminate\Http\Request;
 use DB;
 use App\Post;
@@ -11,6 +12,10 @@ use App\Http\Requests\ClassfiRequest;
 class ClassfiController extends Controller
 {
     //顯示所有文章類別
+    public function __construct()
+    {
+        $this->middleware(CheckAdmin::class);
+    }
     public function index()
     {   
         
