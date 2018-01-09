@@ -30,7 +30,8 @@
             <div class="text-left">
                
                 <a href="{{ route('posts.comment',$post->id) }}" align="right" class="btn btn-su">留言</a>
-                <a href="{{route('posts.edit',$post->id)}}" align="right" class="btn btn-su">編輯</a> 
+                <a href="{{route('posts.edit',$post->id)}}" align="right" class="btn btn-su">編輯</a>
+                <a href="{{route('posts.deletech',$post->id)}}" align="right" class="btn btn-su">刪除</a>  
             </div>
           
             @foreach ($post->comments as $comment) 

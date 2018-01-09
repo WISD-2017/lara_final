@@ -40,6 +40,8 @@ Route::group(['prefix' => 'posts'], function() {
     
     //編輯文章
     Route::get('/edit/{id}', ['as' => 'posts.edit'  , 'uses' => 'PostController@postsedit']);
+    Route::get('/deletech/{id}', ['as' => 'posts.deletech'  , 'uses' => 'PostController@postsdeletech']);
+    Route::delete('/delete/{id}', ['as' => 'posts.delete'  , 'uses' => 'PostController@postsdelete']);
     Route::patch('/postsave/{id}', ['as' => 'posts.update'  , 'uses' => 'PostController@postsupdate']);
     
 

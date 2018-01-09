@@ -86,6 +86,27 @@ class PostController extends Controller
 
         return redirect()->route('posts.view',$post->id); 
     }
+    
+    public function postsdeletech($id)
+    {   
+    
+        $post=Post::find($id);
+        return view('postsdeletech',['post'=>$post]);
+    }
+    public function postsdelete($id)
+    {   
+    
+        $comment=DB::table('comments')->where('post_id','=',$id)->get();
+        
+        if($comment!=null){
+            foreach($comment as $comment)
+            DB::table('comments')->where('post_id', '=', $comment->post_id)->delete();
+            
+        }
+        Post::destroy($id);
+        return redirect('posts');
+    }
+
 
 
    public function hot()
