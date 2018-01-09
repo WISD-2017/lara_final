@@ -19,9 +19,13 @@ class PostClassController extends Controller
     {   
         $posts = Post::where('classfi_id',$id)->orderBy('created_at','DESC')->get();
         $class= Classfi::find($id);
-        foreach($posts as $post){
-        $user = DB::table('users')->where('id','=',$post->user_id)->get();
+        
+        if($posts != null){    
+        return view('classposts',['posts'=>$posts,'class'=>$class]);
         }
-        return view('classposts',['posts'=>$posts,'class'=>$class,'user'=>$user]);
+        else
+        {
+            return view('nullpost');
+        }
     }
 }

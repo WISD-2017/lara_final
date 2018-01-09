@@ -16,9 +16,9 @@ use App\Http\Middleware\CheckAdmin;
 Route::auth();
 //首頁路由
 Route::get('/',['as'=>'index','uses'=>'HomeController@index']);
-
+Route::get('home/',['as'=>'home','uses'=>'HomeController@home']);
 Route::group(['prefix' => 'member'], function() {
-    Route::get('home/',['as'=>'home','uses'=>'HomeController@home']);
+    
     Route::get('/',['as'=>'member','uses'=>'HomeController@member']);
     Route::get('edit',['as'=>'member.edit','uses'=>'HomeController@memberedit']);
     Route::patch('/edit/{id}',['as'=>'member.update','uses'=>'HomeController@memberupdate']);

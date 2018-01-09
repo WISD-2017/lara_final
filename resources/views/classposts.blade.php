@@ -20,19 +20,19 @@
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                @foreach($posts as $post )
-                @foreach($user as $user)
+                
                     <div>
                     <hr  size=10 color=#888888>
                     <a href="{{ route('posts.view', $post->id) }}">
                         <div style="padding:8px">
-                        <div style="text-align:left">{{$user->name}}</div>
+                        <div style="text-align:left">{{DB::table('users')->where('id','=',$post->user_id)->pluck('name')}}</div>
                         <div class="fontlarge">{{$post -> title}}</div>
                         <div>{{$post ->updated_at}}</div>
                         </div>
                         </a>
                     
                     </div><hr size=8 color=#888888>
-                 @endforeach
+                 
                 @endforeach
                 
                 </tbody>

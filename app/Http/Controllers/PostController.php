@@ -17,14 +17,15 @@ class PostController extends Controller
    public function newest()
    {
     $posts = Post::orderBy('created_at','DESC')->get();
-    foreach($posts as $post)
-    {
-        $user = DB::table('users')->where('id','=',$post ->user_id)->get();
+    
+    if($posts == null){
+        return ('nullpost');
     }
-    $data =['posts'=> $posts];
-
-    return view('newest',$data,['user'=>$user]);
-   }
+    else{
+    return view('newest',['posts'=> $posts]);
+    
+    }   
+}
    public function posts($id)
    {
        
@@ -64,5 +65,12 @@ class PostController extends Controller
     return redirect()->route('posts.view',$id);
    }
 
-   
+   public function hot()
+   {
+        
+       // $comment = Comment::find()->where('post_id','=','1');
+        $post = Comment::get()->sum('post_id')->orederBy();
+    
+        return view('hotposts',['post'=>$post]);
+   }
 }
