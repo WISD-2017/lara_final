@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">後臺管理</div>
                 <a href="{{route('classfi.index')}}" ><div class="panel-heading">文章類別</div></a>
+                <a href="{{route('admin.posts')}}" ><div class="panel-heading">文章管理</div></a>
                 </div>
             </div>
         </div>
