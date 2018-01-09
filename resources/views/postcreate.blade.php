@@ -22,8 +22,6 @@
             {{csrf_field()}}
             <div style="display:none">
             <input name="user_id" value={{Auth::user()->id}}>
-            <input name="user_name" value="{{Auth::user()->name}}">
-            
             </div>
             
             <div class="">

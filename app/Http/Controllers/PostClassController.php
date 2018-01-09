@@ -14,10 +14,14 @@ class PostClassController extends Controller
         $classfis = DB::table('classfis')->get();
         return view('classview',['classfis'=>$classfis]);
     }
+
     public function showpost($id)
     {   
         $posts = Post::where('classfi_id',$id)->orderBy('created_at','DESC')->get();
-        
-        return view('classposts',['posts'=>$posts]);
+        $class= Classfi::find($id);
+        foreach($posts as $post){
+        $user = DB::table('users')->where('id','=',$post->user_id)->get();
+        }
+        return view('classposts',['posts'=>$posts,'class'=>$class,'user'=>$user]);
     }
 }

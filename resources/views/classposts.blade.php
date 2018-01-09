@@ -5,7 +5,7 @@
 <!-- /.row -->
 <div class="container">
    
-    <div class="panel-heading" style="text-align:left">最新文章
+    <div class="panel-heading" style="text-align:left">{{$class->class}}
     @guest
         <p clss="fontsmall">登入後才可發文</p>
     @else
@@ -19,18 +19,20 @@
     <div class="col-lg-8">
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
-               @foreach($posts as $post)
+               @foreach($posts as $post )
+                @foreach($user as $user)
                     <div>
                     <hr  size=10 color=#888888>
                     <a href="{{ route('posts.view', $post->id) }}">
                         <div style="padding:8px">
-                        <div style="text-align:left">{{$post->user_name}}</div>
+                        <div style="text-align:left">{{$user->name}}</div>
                         <div class="fontlarge">{{$post -> title}}</div>
                         <div>{{$post ->updated_at}}</div>
                         </div>
                         </a>
                     
                     </div><hr size=8 color=#888888>
+                 @endforeach
                 @endforeach
                 
                 </tbody>

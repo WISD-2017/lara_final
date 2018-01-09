@@ -11,20 +11,33 @@ use App\Post;
 use App\Comment;
 use Auth;
 use App\Classfi;
+use DB;
 class PostController extends Controller
 {
    public function newest()
    {
     $posts = Post::orderBy('created_at','DESC')->get();
+    foreach($posts as $post)
+    {
+        $user = DB::table('users')->where('id','=',$post ->user_id)->get();
+    }
     $data =['posts'=> $posts];
-    return view('newest',$data);
+
+    return view('newest',$data,['user'=>$user]);
    }
    public function posts($id)
    {
-        $post=Post::find($id); 
+       
+        $post=Post::find($id);
+        if($post==null)
+        {
+        return view('nullpost');
+        }
+        else{
         $data=['post'=>$post];
         return view('posts', $data);
-   }
+        }
+    }
    public function create()
    {
        $classfis = Classfi::all(); 
@@ -42,6 +55,7 @@ class PostController extends Controller
         $post=Post::find($id);
         return view('postcomment',['post'=>$post]);
     }
+
     public function comstore(CommentRequest $request) 
     {
     Comment::create($request->all());
@@ -49,4 +63,6 @@ class PostController extends Controller
     
     return redirect()->route('posts.view',$id);
    }
+
+   
 }
