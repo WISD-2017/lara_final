@@ -55,7 +55,13 @@ Route::group(['prefix' => 'classfi'], function() {
 Route::group(['prefix' => 'admin'], function() {
     //後台主頁
     Route::get('/',['as'=>'admin.index','uses'=>'AdminPostController@index']);
- 
+    //文章管理
+    Route::get('posts',['as'=>'admin.posts','uses'=>'AdminPostController@posts']);
+    Route::get('/post/check/{id}',['as'=>'adminpost.destroych','uses'=>'AdminPostController@postcheck']);
+    Route::delete('postdel/{id}',['as'=>'adminpost.destroy','uses'=>'AdminPostController@postdelete']);
+
+
+
 
     //文章類別
     Route::get('/classfi',['as'=>'classfi.index','uses'=>'ClassfiController@index']);
