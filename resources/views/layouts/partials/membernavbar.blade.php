@@ -39,6 +39,12 @@
                                         <a href="{{ route('home') }}">
                                             主頁
                                         </a>
+                                        <a href="{{ route('member') }}">
+                                            個人資料
+                                        </a>
+                                        <a href="{{ route('member') }}">
+                                                更改密碼
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
