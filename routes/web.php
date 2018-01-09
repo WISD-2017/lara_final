@@ -37,6 +37,13 @@ Route::group(['prefix' => 'posts'], function() {
     //留言路由
     Route::get('/comment/{id}', ['as' => 'posts.comment'  , 'uses' => 'PostController@comment']);
     Route::post('/{id}', ['as' => 'posts.comstore'  , 'uses' => 'PostController@comstore']);
+    
+    //編輯文章
+    Route::get('/edit/{id}', ['as' => 'posts.edit'  , 'uses' => 'PostController@postsedit']);
+    Route::patch('/postsave/{id}', ['as' => 'posts.update'  , 'uses' => 'PostController@postsupdate']);
+    
+
+
 });
 //熱門文章
 Route::get('hot', ['as'=>'hot.post','uses'=>'PostController@hot']);

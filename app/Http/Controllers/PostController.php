@@ -34,10 +34,16 @@ class PostController extends Controller
         {
         return view('nullpost');
         }
+        elseif(Auth::id()==$post->user_id)
+        {
+            $data=['post'=>$post];
+            return view('ownerposts', $data);
+        }
         else{
         $data=['post'=>$post];
         return view('posts', $data);
         }
+
     }
    public function create()
    {
@@ -64,6 +70,23 @@ class PostController extends Controller
     
     return redirect()->route('posts.view',$id);
    }
+
+   //編輯文章
+   public function postsedit($id) 
+    {
+        $classfis = Classfi::all();
+        $post = DB::table('posts')->where('id','=',$id)->get();
+        return view('postedit', ['post'=>$post,'classfis'=>$classfis]);
+   }
+
+   public function postsupdate(PostRequest $request,$id) 
+   {
+        $post = Post::find($id);
+        $post->update($request->all());
+
+        return redirect()->route('posts.view',$post->id); 
+    }
+
 
    public function hot()
    {
