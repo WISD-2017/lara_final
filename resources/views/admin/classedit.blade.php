@@ -4,7 +4,7 @@
 @include('layouts.partials.validation')
 
 <div class="rowclass">
-        <form action="/backstage/classfi/{{$classfis->id}}" method = "POST" role="form">
+        <form action="{{route('classfi.update',$classfis->id)}}" method = "POST" role="form">
             {{csrf_field()}}
             {{method_field('PATCH')}}
             
@@ -14,7 +14,7 @@
             </div>
             
             <div class="text-right">
-                <button type="submit" class="btnc btn-su">新增</button>
+                <button type="submit" class="btnc btn-su">送出</button>
             </div>
         </form>
 </div>

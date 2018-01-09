@@ -10,14 +10,14 @@
                 </div>
                     
                     
-                    <div class="fontbig">{{$classfis->id }} / {{$classfis->class}}
-                    <form action="{{ route('classfi.destroy', $classfis->id) }}" method="POST">
+                    <div class="fontbig">{{$post->id}} / {{$post->title}}
+                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                      <button class="btncla btn-su">
                      刪除
                     </button>
-                    <a href="{{route('classfi.index')}}" align="right" class="btncla btn-su">取消</a>
+                    <a href="{{route('admin.posts')}}" align="right" class="btncla btn-su">取消</a>
                      </form>
                         
                     </div>

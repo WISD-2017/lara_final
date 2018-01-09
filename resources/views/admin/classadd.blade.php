@@ -4,7 +4,7 @@
 @include('layouts.partials.validation')
 
 <div class="rowclass">
-        <form action="/backstage/classfi" method = "POST" role="form">
+        <form action="{{route('classfi.store')}}" method = "POST" role="form">
             {{csrf_field()}}
             <div class="form-group">
                 <label>類別：</label>
