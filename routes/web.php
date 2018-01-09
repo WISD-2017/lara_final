@@ -16,12 +16,21 @@ use App\Http\Middleware\CheckAdmin;
 Route::auth();
 //首頁路由
 Route::get('/',['as'=>'index','uses'=>'HomeController@index']);
-Route::get('home/',['as'=>'home','uses'=>'HomeController@home']);
-Route::get('newest',['as'=>'newest','uses'=>'PostController@newest']);
+
+Route::group(['prefix' => 'member'], function() {
+    Route::get('home/',['as'=>'home','uses'=>'HomeController@home']);
+    Route::get('/',['as'=>'member','uses'=>'HomeController@member']);
+    Route::get('edit',['as'=>'member.edit','uses'=>'HomeController@memberedit']);
+    Route::patch('/edit/{id}',['as'=>'member.update','uses'=>'HomeController@memberupdate']);
+});
+
 
  
 //文章路由
 Route::group(['prefix' => 'posts'], function() {
+    //最新文章
+    Route::get('newest',['as'=>'newest','uses'=>'PostController@newest']);
+    
     Route::get('/{id}',['as'=>'posts.view','uses'=>'PostController@posts','where' => ['id' => '[0-9]+'],]);
     Route::get('/create',['as'=>'posts.create','uses'=>'PostController@create']);
     Route::post('/', ['as' => 'posts.store'  , 'uses' => 'PostController@store']);
@@ -43,10 +52,11 @@ Route::group(['prefix' => 'classfi'], function() {
 
 
 //後台路由
-Route::group(['prefix' => 'backstage'], function() {
+Route::group(['prefix' => 'admin'], function() {
     //後台主頁
     Route::get('/',['as'=>'admin.index','uses'=>'AdminPostController@index']);
-    
+ 
+
     //文章類別
     Route::get('/classfi',['as'=>'classfi.index','uses'=>'ClassfiController@index']);
     Route::get('/classadd',['as'=>'classfi.add','uses'=>'ClassfiController@classadd']);
@@ -55,4 +65,8 @@ Route::group(['prefix' => 'backstage'], function() {
     Route::patch('/classfi/{id}',['as'=>'classfi.update','uses'=>'ClassfiController@classupdate']);
     Route::get('/classfi/check/{id}',['as'=>'classfi.destroych','uses'=>'ClassfiController@delcheck']);
     Route::delete('/classfi/delet/{id}',['as'=>'classfi.destroy','uses'=>'ClassfiController@destroy']);
+
+   
+
+
 });
